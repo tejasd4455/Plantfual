@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlantFual</title>
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <!-- Website Name -->
+    <a class="navbar-brand fs-2 fw-bold text-success" href="#">Plant<span class="text-warning">Fual</span><sup class="fs-2"><i class="fa-solid fa-fill-drip text-warning"></i></sup><i class="fa-solid fa-seedling"></i></a>
+    
+    <!-- Toggle for mobile view -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links and search bar -->
+    <div class="collapse navbar-collapse fs-5 ms-4 fw-bolder text-black" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link text-black" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="features.html">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="product.html">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="contact us.html">Contact us</a>
+        </li>
+      </ul>
+      <form class="d-flex mx-auto">
+        <input 
+          id="animatedPlaceholder" 
+          class="form-control bg-body-secondary me-2 text-black " 
+          type="search" 
+          placeholder="Search More product..." 
+          aria-label="Search"
+        >
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      
+     
+      
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <button class="me-5 btn btn-outline-warning fw-bolder" data-bs-toggle="modal" data-bs-target="#loginModal">
+              <i class="bi bi-person"></i> Login
+            </button>
+          </a>
+        </li>
+       
+<li class="nav-item">
+  <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+    <button class="btn btn-outline-success fw-bolder fs-5 me-5" id="cartButton">
+      <i class="bi bi-cart"></i> Add to Cart <sup id="cartCount">(0)</sup>
+    </button>
+  </a>
+</li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+<!-- Login Modal -->
+<div class="modal fade " id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content  bg-warning-subtle">
+      <div class="modal-header ">
+        <h5 class="modal-title" id="loginModalLabel">Welcome to...
+          <a class="navbar-brand fs-1 fw-bold text-success jumping vibrating" href="#">Plant<span class="text-warning">Fual</span><sup class="fs-2"><i class="fa-solid fa-fill-drip text-warning"></i></sup><i class="fa-solid fa-seedling"></i></a>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body img1">
+        <form id="loginForm">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label fw-bolder">Email address</label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label fw-bolder">Password</label>
+            <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+          </div>
+          <div class="mb-3">
+            <!-- CAPTCHA Box Styling with Consistent Alignment -->
+            <div class="captcha-box bg-light-subtle   p-4" id="login-captcha-box" 
+                 style="font-size: 1.5rem; height: 50px; text-align: center; display: flex; align-items: center; justify-content: center;">
+                <!-- CAPTCHA Text Will be Generated Here -->
+            </div>
+            <input type="text" class="form-control mt-2" id="loginCaptchaInput" placeholder="Enter CAPTCHA" required 
+                   style="font-size: 1.5rem; height: 50px;">
+            <!-- CAPTCHA Regenerate Button -->
+            <button type="button" class="btn btn-danger  fw-semibold w-100 mt-2" id="regenerateLoginCaptcha"><i class="fa-solid fa-rotate-right mx-2"></i> Regenerate CAPTCHA<i class="fa-solid fa-rotate-right mx-2"></i></button>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 btn-grad">Login</button>
+        </form>
+      </div>
+      <div class="modal-footer bg-warning">
+        <p class="m-0 fw-medium">Don't have an account.? 
+          <button class="btn btn-link p-0 fw-medium" data-bs-target="#signupModal" data-bs-toggle="modal" data-bs-dismiss="modal">Create one</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Signup Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-warning-subtle">
+      <div class="modal-header ">
+        <h5 class="modal-title" id="signupModalLabel">Create New Account to
+          <a class="navbar-brand fs-1 fw-bold text-success" href="#">Plant<span class="text-warning">Fual</span><sup class="fs-2"><i class="fa-solid fa-fill-drip text-warning"></i></sup><i class="fa-solid fa-seedling"></i></a>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="signupForm">
+          <div class="mb-3">
+            <label for="signupName" class="form-label fw-bold">Full Name</label>
+            <input type="text" class="form-control" id="signupName" placeholder="Enter your full name" required>
+          </div>
+          <div class="mb-3">
+            <label for="signupEmail" class="form-label fw-bold">Email address</label>
+            <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email" required>
+          </div>
+          <div class="mb-3">
+            <label for="signupPassword" class="form-label fw-bold">Password</label>
+            <input type="password" class="form-control" id="signupPassword" placeholder="Create a password" required>
+          </div>
+          <div class="mb-3 fw-bolder">
+            <!-- Adjusted CAPTCHA Box Styling -->
+            <div class="captcha-box bg-light-subtle  p-3" id="signup-captcha-box" style="font-size: 1.5rem; height: 50px; text-align: center; display: flex; align-items: center; justify-content: center;"></div>
+            <input type="text" class="form-control mt-2" id="signupCaptchaInput" placeholder="Enter CAPTCHA" required style="font-size: 1.5rem;">
+            <!-- CAPTCHA Regenerate Button -->
+             <button type="button" class="btn btn-danger fw-semibold   w-100 mt-2" id="regenerateSignupCaptcha"><i class="fa-solid fa-rotate-right mx-2 text-primary"></i>Regenerate CAPTCHA<i class="fa-solid fa-rotate-right mx-2 text-primary"></i></button>
+          </div>
+          <button type="submit" class="btn btn-success w-100 fw-bold">Create Account</button>
+        </form>
+      </div>
+      <div class="modal-footer bg-warning text-dark">
+        <p class="m-0 fw-medium">Already have an account.? 
+          <button class="btn btn-link fw-medium" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal">Login..</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Background Image Section -->
+<section class="background-section pt-4">
+  <div class="img ">
+    <div class="text-container">
+      <h1 class="fs-1 bg-light fw-bold ">Welcome to PlantFuel...</h1>
+      <p class="bg-warning ">Grow greener, healthier plants with our premium fertilizers....</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- Product Section -->
+<div class="product-section p-4 productbg">
+  <div class="container my-5">
+    <h2 class="text-center bg-light border border-light mb-4"> <a class="navbar-brand fs-2 fw-bold text-success" href="#">Plant<span class="text-warning">Fual</span><sup class="fs-2"><i class="fa-solid fa-fill-drip text-warning"></i></sup><i class="fa-solid fa-seedling"></i></a>
+    </h2>
+    <div class="row">
+      <!-- Dynamic Product Cards -->
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="1">
+        <div class="card bg-primary-subtle">
+          <img src="images/movento2.avif" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Movento 2 way (500ml)</h5>
+            <span class="text-muted text-decoration-line-through ">₹530.00</span> 
+            <p class="card-text text-danger fw-semibold">₹499.00 <span></span></p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart ">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="2">
+        <div class="card bg-primary-subtle">
+          <img src="images/glycel liqyuid.jpg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Glycel (1l/500ml)</h5>
+              <span class="text-muted text-decoration-line-through bg-body-secondary">₹429.00</span> 
+            <p class="card-text">
+              <span class="text-danger fw-semibold">₹288.00</span>
+</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      
+
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="3">
+        <div class="card bg-primary-subtle">
+          <img src="images/coragen.jpg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Coragen( Insecticide)</h5>
+            <span class="text-muted text-decoration-line-through">₹220</span> 
+            <p class="card-text text-danger fw-semibold">₹166</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="4">
+        <div class="card bg-primary-subtle">
+          <img src="images/fame.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Fame (100ml)</h5>
+            <span class="text-muted text-decoration-line-through">₹360</span> 
+
+            <p class="card-text fw-semibold text-danger">₹266</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="5">
+        <div class="card bg-primary-subtle">
+          <img src="images/Plantix.jpg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Plantix</h5>
+            <span class="text-muted text-decoration-line-through">₹166</span> 
+
+            <p class="card-text fw-semibold text-danger">₹150</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="6">
+        <div class="card bg-primary-subtle">
+          <img src="images/uriya.jpg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">IFFCO  <BR>(Nano Uria)</h5>
+              <span class="text-muted text-decoration-line-through">₹499</span> 
+
+            <p class="card-text fw-semibold text-danger">₹320</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="7">
+        <div class="card bg-primary-subtle">
+          <img src="images/renova.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Renovo</h5>
+            <span class="text-muted text-decoration-line-through">₹325</span> 
+
+            <p class="card-text fw-semibold text-danger">₹299</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="8">
+        <div class="card bg-primary-subtle">
+          <img src="images/novo virus.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Novecrone (Insecticide)</h5>
+            <span class="text-muted text-decoration-line-through">₹860</span> 
+
+            <p class="card-text fw-semibold text-danger">₹644</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="9">
+        <div class="card bg-primary-subtle">
+          <img src="images/obron.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Oberon (500ml)</h5>
+            <span class="text-muted text-decoration-line-through">₹810</span> 
+
+            <p class="card-text fw-semibold text-danger">₹666</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="10">
+        <div class="card bg-primary-subtle">
+          <img src="images/bio npk.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Bio-N:P:K</h5>
+            <span class="text-muted text-decoration-line-through">₹1284</span> 
+
+            <p class="card-text fw-semibold text-danger">₹844</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="11">
+        <div class="card bg-primary-subtle">
+          <img src="images/rexton.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Rexton (13:40:10)</h5>
+            <span class="text-muted text-decoration-line-through">₹850</span> 
+
+            <p class="card-text fw-semibold text-danger">₹799</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="12">
+        <div class="card bg-primary-subtle">
+          <img src="images/power agro.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Onion+ (Power Grow)</h5>
+            <span class="text-muted text-decoration-line-through">₹979</span> 
+
+            <p class="card-text fw-semibold text-danger">₹598</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="13">
+        <div class="card bg-primary-subtle">
+          <img src="images/Seaweed.jpg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Seaweed</h5>
+            <span class="text-muted text-decoration-line-through">₹433</span> 
+
+            <p class="card-text fw-semibold text-danger">₹399</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="14">
+        <div class="card bg-primary-subtle">
+          <img src="images/dr neem.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Dr Neem 1000<br>
+              <span class="text-muted text-decoration-line-through">₹1040</span> 
+
+              (Neem oil)</h5>
+            <p class="card-text fw-semibold text-danger">₹970</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="15">
+        <div class="card bg-primary-subtle">
+          <img src="images/saaf.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Saaf (Fungicide)</h5>
+            <span class="text-muted text-decoration-line-through">₹119</span> 
+
+            <p class="card-text fw-semibold text-danger">99</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="16">
+        <div class="card bg-primary-subtle">
+          <img src="images/blue copper.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Blue Copper</h5>
+            <span class="text-muted text-decoration-line-through">₹725</span> 
+
+            <p class="card-text fw-semibold text-danger">₹422</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="17">
+        <div class="card bg-primary-subtle">
+          <img src="images/taqat.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Taqat (Contract Fungicide)</h5>
+            <span class="text-muted text-decoration-line-through">₹918</span> 
+
+            <p class="card-text fw-semibold text-danger">₹666</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="18">
+        <div class="card bg-primary-subtle">
+          <img src="images/quash.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Quash</h5>
+            <span class="text-muted text-decoration-line-through">₹236</span> 
+
+            <p class="card-text fw-semibold text-danger">₹177</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="19">
+        <div class="card bg-primary-subtle">
+          <img src="images/sultaf.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Sultaf (Fungicide)</h5>
+            <span class="text-muted text-decoration-line-through">₹323</span> 
+
+            <p class="card-text fw-semibold text-danger">₹309</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="20">
+        <div class="card bg-primary-subtle">
+          <img src="images/steam border.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Gaiaen Lures (tap)</h5>
+            <span class="text-muted text-decoration-line-through">₹410</span> 
+
+            <p class="card-text fw-semibold text-danger">₹199</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="21">
+        <div class="card bg-primary-subtle">
+          <img src="images/sethu.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Sethu Agroveer<br>(Sugercane Booster)</h5>
+            <span class="text-muted text-decoration-line-through">₹880</span> 
+
+            <p class="card-text fw-semibold text-danger">₹509</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="22">
+        <div class="card bg-primary-subtle">
+          <img src="images/root power.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Root Power</h5>
+            <span class="text-muted text-decoration-line-through">₹500</span> 
+
+            <p class="card-text fw-semibold text-danger">₹360</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="23">
+        <div class="card bg-primary-subtle">
+          <img src="images/blackout2.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Black Carbon (Fertilizer Coat)</h5>
+            <span class="text-muted text-decoration-line-through">₹186</span> 
+
+            <p class="card-text fw-semibold text-danger">₹144</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="24">
+        <div class="card bg-primary-subtle">
+          <img src="images/azin.avif" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Azin</h5>
+            <span class="text-muted text-decoration-line-through">₹1093</span> 
+
+            <p class="card-text fw-semibold text-danger">₹599</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+
+
+  <span class="text-end fs-5">
+    <button class="border-0 btn btn-link text-dark btn btn-outline-secondary  btn-sm">More Products</button>
+  </span>
+  
+
+      <div class="text-center text-dark fw-bold mb-4">
+        <h5>
+          <i class="fa-solid fa-seedling text-success fs-3"></i>
+          Seeds
+          <i class="fa-solid fa-seedling text-success fs-3"></i>
+        </h5>
+        <a class="navbar-brand fs-5 fw-bold text-success" href="#">
+          Plant<span class="text-warning">Fuel</span>
+          <sup class="fs-6">
+            <i class="fa-solid fa-fill-drip text-warning"></i>
+          </sup>
+          <i class="fa-solid fa-seedling text-success"></i>
+        </a>
+      </div>
+      
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="25">
+        <div class="card bg-primary-subtle">
+          <img src="images/tomato seed.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Tomato (T3252)</h5>
+            <span class="text-muted text-decoration-line-through">₹1450</span> 
+
+            <p class="card-text fw-semibold text-danger">₹983</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="26">
+        <div class="card bg-primary-subtle">
+          <img src="images/gawar.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Gawar (NB4B4)</h5>
+            <span class="text-muted text-decoration-line-through">₹269</span> 
+
+            <p class="card-text fw-semibold text-dangerfw-semibold text-danger">₹198</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="27">
+        <div class="card bg-primary-subtle">
+          <img src="images/ground nut.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Ground Nut (Big red)</h5>         
+               <span class="text-muted text-decoration-line-through">₹399</span> 
+
+            <p class="card-text fw-semibold text-danger">₹309</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="28">
+        <div class="card bg-primary-subtle">
+          <img src="images/bajra.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Bajara (Hybrid+)</h5>       
+                 <span class="text-muted text-decoration-line-through">₹1080</span> 
+
+            <p class="card-text fw-semibold text-danger">₹657</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="29">
+        <div class="card bg-primary-subtle">
+          <img src="images/corn.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Corn (75 Sweet) </h5>        
+                <span class="text-muted text-decoration-line-through">₹3490</span> 
+
+            <p class="card-text fw-semibold text-danger">₹2714</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="30">
+        <div class="card bg-primary-subtle">
+          <img src="images/green chilli.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Green Chill (US 710)</h5>        
+                <span class="text-muted text-decoration-line-through">₹772</span> 
+
+            <p class="card-text fw-semibold text-danger">₹459</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="31">
+        <div class="card bg-primary-subtle">
+          <img src="images/red chili.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Red Chill (F1 Hybrid)</h5>       
+                 <span class="text-muted text-decoration-line-through">₹750</span> 
+
+            <p class="card-text fw-semibold text-danger">₹583</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="32">
+        <div class="card bg-primary-subtle">
+          <img src="images/grass.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Grass (17-1-10)</h5>          
+              <span class="text-muted text-decoration-line-through">₹798</span> 
+
+            <p class="card-text fw-semibold text-danger">₹509</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="33">
+        <div class="card bg-primary-subtle">
+          <img src="images/onion.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Onion (PREMA 178)</h5>            
+            <span class="text-muted text-decoration-line-through">₹1960</span> 
+
+            <p class="card-text fw-semibold text-danger">₹1634</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="34">
+        <div class="card bg-primary-subtle">
+          <img src="images/papaya.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Papaya Seeds (FB)</h5>        
+                <span class="text-muted text-decoration-line-through">₹4600</span> 
+
+            <p class="card-text fw-semibold text-danger">₹4469</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="35">
+        <div class="card bg-primary-subtle">
+          <img src="images/wheat.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Wheat (Super 303)</h5>     
+                   <span class="text-muted text-decoration-line-through">₹2,200</span> 
+
+            <p class="card-text fw-semibold text-danger">₹1,999</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="36">
+        <div class="card bg-primary-subtle">
+          <img src="images/mug.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Mug (green BK54)</h5>
+            <span class="text-muted text-decoration-line-through">₹220</span> 
+
+            <p class="card-text fw-semibold text-danger">₹199</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="37">
+        <div class="card bg-primary-subtle">
+          <img src="images/bhendi.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Bhendi Super (NOS3680)</h5>
+            <span class="text-muted text-decoration-line-through">₹199</span> 
+
+            <p class="card-text fw-semibold text-danger">₹159</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="38">
+        <div class="card bg-primary-subtle">
+          <img src="images/bit.jpg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Bit Sweat (US)</h5>
+            <span class="text-muted text-decoration-line-through">₹500</span> 
+
+            <p class="card-text fw-semibold text-danger">₹459</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="39">
+        <div class="card bg-primary-subtle">
+          <img src="images/carrot.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Red Carrot (Pan 2700)</h5>
+            <span class="text-muted text-decoration-line-through">₹269</span> 
+
+            <p class="card-text fw-semibold text-danger">₹169</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="40">
+        <div class="card bg-primary-subtle">
+          <img src="images/cotton.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cotton (BT 551)</h5>
+            <span class="text-muted text-decoration-line-through">₹799</span> 
+
+            <p class="card-text fw-semibold text-danger">₹579</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="41">
+        <div class="card bg-primary-subtle">
+          <img src="images/cucumber.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cucumber (HS 586)</h5>
+            <span class="text-muted text-decoration-line-through">₹399</span> 
+
+            <p class="card-text fw-semibold text-danger">₹150</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="42">
+        <div class="card bg-primary-subtle">
+          <img src="images/gawar.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Gawar (SR 23)</h5>
+            <span class="text-muted text-decoration-line-through">₹229</span> 
+
+            <p class="card-text fw-semibold text-danger">₹199</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="43">
+        <div class="card bg-primary-subtle">
+          <img src="images/methi.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Methi (RHM 1899) </h5>
+            <span class="text-muted text-decoration-line-through">₹199</span> 
+
+            <p class="card-text fw-semibold text-danger">₹169</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="44">
+        <div class="card bg-primary-subtle">
+          <img src="images/karela.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Green Karela</h5>
+            <span class="text-muted text-decoration-line-through">₹409</span> 
+
+            <p class="card-text fw-semibold text-danger">₹399</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="45">
+        <div class="card bg-primary-subtle">
+          <img src="images/green peas.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Green Peas</h5>
+            <span class="text-muted text-decoration-line-through">₹299</span> 
+
+            <p class="card-text fw-semibold text-danger">₹229</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="46">
+        <div class="card bg-primary-subtle">
+          <img src="images/simla mirch.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Red Simla (HS45)</h5>
+            <span class="text-muted text-decoration-line-through">₹598</span> 
+
+            <p class="card-text fw-semibold text-danger ">₹369</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="47">
+        <div class="card bg-primary-subtle">
+          <img src="images/watermelon.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Watermelon(NS 295F)</h5>
+            <span class="text-muted text-decoration-line-through">₹500</span> 
+
+            <p class="card-text fw-semibold text-danger">₹380</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="48">
+        <div class="card bg-primary-subtle">
+          <img src="images/brinjal.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Brinjal (212 F1 Hybrid)</h5>
+            <span class="text-muted text-decoration-line-through">₹224</span> 
+
+            <p class="card-text fw-semibold text-danger">₹170</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="49">
+        <div class="card bg-primary-subtle">
+          <img src="images/radish.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Radish (Advance 30)</h5>
+            <span class="text-muted text-decoration-line-through">₹730</span> 
+
+            <p class="card-text fw-semibold text-danger">₹560</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="50">
+        <div class="card bg-primary-subtle">
+          <img src="images/Cauliflower.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cauliflower White</h5>
+            <span class="text-muted text-decoration-line-through">₹910</span> 
+
+            <p class="card-text fw-semibold text-danger">₹749</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="51">
+        <div class="card bg-primary-subtle">
+          <img src="images/Mixed Flower Seeds.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Mixed Flower Seeds</h5>
+            <span class="text-muted text-decoration-line-through">₹249</span> 
+
+            <p class="card-text fw-semibold text-danger">₹148</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="52">
+        <div class="card bg-primary-subtle">
+          <img src="images/Muskmelon 999 Gold.avif" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Maskmelon 999 gold</h5>
+            <span class="text-muted text-decoration-line-through">₹1099</span> 
+
+            <p class="card-text fw-semibold text-danger">₹790</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="53">
+        <div class="card bg-primary-subtle">
+          <img src="images/Turmeric.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Organic Turmeric</h5>
+            <span class="text-muted text-decoration-line-through">₹2399</span> 
+
+            <p class="card-text fw-semibold text-danger">₹1500</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="54">
+        <div class="card bg-primary-subtle">
+          <img src="images/Pusa Manav20211 Chana.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Pusa Manav20211 Chana</h5>
+            <span class="text-muted text-decoration-line-through">₹500</span> 
+
+            <p class="card-text text-danger fw-semibold">₹399</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="55">
+        <div class="card bg-primary-subtle">
+          <img src="images/10-26-26-(NPK).png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">10:26:26 NPK</h5>
+            <span class="text-muted text-decoration-line-through">₹1999</span> 
+
+            <p class="card-text text-danger fw-semibold">₹1800</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="56">
+        <div class="card bg-primary-subtle">
+          <img src="images/urea.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Urea (Neem)</h5>
+            <span class="text-muted text-decoration-line-through">₹400</span> 
+
+            <p class="card-text text-danger fw-semibold">₹299</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="57">
+        <div class="card bg-primary-subtle">
+          <img src="images/18 46 0 dap.jpeg" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">18:46:0 DAP</h5>
+            <span class="text-muted text-decoration-line-through">₹1500</span> 
+
+            <p class="card-text text-danger fw-semibold">₹1250</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="58">
+        <div class="card bg-primary-subtle">
+          <img src="images/potash PDFM.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Potash 50kg (PDFM)</h5>
+            <span class="text-muted text-decoration-line-through">₹899</span> 
+
+            <p class="card-text text-danger fw-semibold">₹570</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="59">
+        <div class="card bg-primary-subtle">
+          <img src="images/npk19.webp" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">NPK 19:19:19</h5>
+            <span class="text-muted text-decoration-line-through">₹1700</span> 
+
+            <p class="card-text text-danger fw-semibold">₹1499</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-2 mb-4" data-product-id="60">
+        <div class="card bg-primary-subtle">
+          <img src="images/PK 0-12-14+13S.png" class="card-img-top" alt="Product Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">PK 0-12-14+13S</h5>
+            <span class="text-muted text-decoration-line-through">₹1250</span> 
+
+            <p class="card-text text-danger fw-semibold">₹1050</p>
+            <a href="#" class="btn btn-primary btn-sm buy-now" data-bs-toggle="modal" data-bs-target="#paymentMethodModal">Buy Now</a>
+            
+            <a href="#" class="btn btn-success btn-sm mt-2 add-to-cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Offcanvas for Cart and Payment -->
+ 
+<div class="offcanvas offcanvas-end " tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title fw-bold fs-2" id="cartOffcanvasLabel">Shopping Cart <i class="bi bi-cart4 text-warning fs-1"></i></h5><br>
+    
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <!-- Cart Items -->
+    <ul class="list-group mb-3" id="cartItems"></ul>
+    <h6>Total: <span id="totalPrice">₹0.00</span></h6>
+    <button class="btn btn-success w-100 mb-3" id="checkoutBtn">Checkout</button>
+
+    <!-- Payment and Customer Info Section -->
+    <div id="paymentInfoSection" class="d-none bg-info-subtle ">
+      <h5 class="mb-3 bg-info-subtle fw-bolder">Payment Method  <i class="fa-solid fw-bolder text-primary fa-indian-rupee-sign"></i> <i class="bi bi-credit-card text-warning"></i></h5>
+      <select class="form-select mb-3" id="paymentMethod">
+        <option value="card">Credit/Debit Card <i class="fa-brands text-success fw-bolder fa-google-pay"></i></option>
+        <option value="upi">UPI <i class="fa-brands fa-google-pay"></i></option>
+        <option value="cod">Cash on Delivery</option>
+      </select>
+
+      <h5 class="mb-3 fw-bolder">Customer Information</h5>
+      <input type="text" class="form-control mb-2" id="customerName" placeholder="Full Name">
+      <input type="email" class="form-control mb-2" id="customerAddress" placeholder=" Address">
+      <input type="text" class="form-control mb-2" id="customerPhone" placeholder="Phone Number">
+
+      <h5 class="mb-3 fw-bolder">Address</h5>
+      <textarea class="form-control mb-3" id="customerAddress" placeholder="Enter your delivery address"></textarea>
+
+      <button class="btn btn-primary w-100 mb-3" id="placeOrderBtn">Place Order</button>
+    </div>
+
+    <!-- Order Confirmation and Tracking -->
+    <div id="orderConfirmationSection" class="d-none">
+      <h5 class="text-success">Your product has been ordered!</h5>
+      <p class="text">You can track your order below:</p>
+      <div class="progress mb-3">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%;" id="trackingProgress">25%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="features-section py-5 bg-success">
+  <div class="container">
+    <!-- Section heading -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Our Features</h2>
+      <p class="text-muted">Discover what makes PlantFuel the best choice for your plants.</p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="row g-4">
+      <!-- Feature 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card feature-card h-100 text-center p-4">
+          <div class="card-body">
+            <i class="fas fa-seedling feature-icon"></i>
+            <h5 class="card-title mt-3">Organic Ingredients</h5>
+            <p class="card-text">Our fertilizers are made from 100% organic materials to ensure the healthiest growth for your plants.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card feature-card h-100 text-center p-4">
+          <div class="card-body">
+            <i class="fas fa-leaf feature-icon"></i>
+            <h5 class="card-title mt-3">Eco-Friendly</h5>
+            <p class="card-text">We take sustainability seriously, providing fertilizers that are safe for the environment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card feature-card h-100 text-center p-4">
+          <div class="card-body">
+            <i class="fas fa-hand-holding-water feature-icon"></i>
+            <h5 class="card-title mt-3">Water Retention</h5>
+            <p class="card-text">Our formula helps your plants retain more water, reducing the need for constant watering.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Our Services Section -->
+<section class="services-section py-5 bg-primary-subtle">
+  <div class="container">
+    <!-- Section heading -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Our Services</h2>
+      <p class="text-muted">We offer a variety of services to help your plants thrive.</p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="row g-4">
+      <!-- Service 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card service-card h-100 text-center p-4 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="fas fa-hand-sparkles service-icon icon"></i>
+            <h5 class="card-title mt-3">Soil Testing</h5>
+            <p class="card-text">Ensure the best conditions for your plants with our professional soil testing service.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card service-card h-100 text-center p-4 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="fa-solid fa-fill-drip icon"></i>            
+            <h5 class="card-title mt-3">Fertilizers</h5>
+            <p class="card-text">We provide a wide range of eco-friendly fertilizers tailored to your plants’ needs.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card service-card h-100 text-center p-4 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="fas fa-sun service-icon icon"></i> 
+            <h5 class="card-title mt-3">Agricatcture Advice</h5>
+            <p class="card-text">Get expert advice on how to care for your plants and make them thrive year-round.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card service-card h-100 text-center p-4 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-droplet-half icon"></i>
+                        <h5 class="card-title mt-3">Liquid Fertilizers</h5>
+            <p class="card-text">Optimize your watering system with our efficient, plant-friendly solutions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card service-card h-100 text-center p-4 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-gear icon"></i>
+                    <h5 class="card-title mt-3">Agricatcture Tools</h5>
+            <p class="card-text">We design and build greenhouses tailored to the specific needs of your plants.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card service-card h-100 text-center p-4 border-0 shadow-sm bg-light">
+          <div class="card-body">
+            <i class="fas fa-seedling icon  "></i>  <!-- Seed Icon -->
+            <h5 class="card-title mt-3">Seeds</h5>
+            <p class="card-text">Our seeds are sourced from trusted suppliers, ensuring high germination rates and healthy plants.</p>
+          </div>
+        </div>
+      </div>
+
+
+        </div>
+      </div>
+  
+</section>
+
+
+
+
+
+<div class="container mt-4 ">
+  <div class="row">
+      <div class="col-6 col-md-4 col-lg-3">
+          <img src="images/potato.jpg" class="img-fluid" alt="Image 1">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/water pant.jpg" class="img-fluid" alt="Image 2">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/pexels-quang-nguyen-vinh-222549-2135677.jpg " class="img-fluid" alt="Image 3">
+          <img src="images/sprey.jpg" class="img-fluid" alt="Image 3">
+
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/vegitable.jpg" class="img-fluid" alt="Image 4">
+          <img src="images/pexels-abhishekkoundle-3905689.jpg" class="img-fluid" alt="Image 3">
+
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/plant root.jpg" class="img-fluid" alt="Image 5">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/man sprey.jpg" class="img-fluid" alt="Image 6">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/npk.jpg" class="img-fluid" alt="Image 7">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/pexels-byrahul-983466.jpg" class="img-fluid" alt="Image 8">
+      </div>
+  </div>
+</div>
+
+
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scrollToTopBtn" class="btn btn-success  btn-lg rounded-circle" onclick="scrollToTop()">
+    <i class="bi bi-arrow-up fw-bolder "></i>
+  </button>
+
+ 
+
+
+
+<!-- 
+<div id="carouselExampleFade" class="carousel slide carousel-fade">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/agree bg.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="images/seeding bg.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div> -->
+
+
+
+<footer class="bg-black text-white pt-5 pb-4">
+  <div class="container text-center text-md-start">
+      <div class="row text-center text-md-start">
+          <!-- Company Info -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <a class="navbar-brand fs-2 fw-bold text-success" href="#">PlantFual<sup class="fs-2"><i class="fa-solid fa-fill-drip text-warning"></i></sup><i class="fa-solid fa-seedling"></i></a>
+
+              <h6>From Soil to Harvest: Fertilize Your Dreams!<i class="bi bi-tag  text-warning"></i></h6>
+              
+          </div>
+
+          <!-- Links -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h5 class="text-uppercase mb-4 fw-bold text-warning">Products</h5>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">HOME</a></p>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">Product</a></p>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">Special</a></p>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">About</a></p>
+              
+          </div>
+
+
+          
+
+          <!-- Useful Links -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h5 class="text-uppercase mb-4 fw-bold  text-warning">Useful Links</h5>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">Your Account</a></p>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">Become an Affiliate</a></p>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">Shipping Rates</a></p>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">Help</a></p>
+          </div>
+
+          <!-- Contact -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h5 class="text-uppercase mb-4 fw-bold  text-warning">Contact</h5>
+              <p class="fw-bolder"><i class="fas fa-home mr-3 text-danger "></i> xyz ,abc, Maharastra(India)</p>
+              <p class="fw-bolder"><i class="fas fa-envelope mr-3 text-warning "></i> PlantFual@24gmail.com</p>
+              <p class="fw-bolder"><i class="fas fa-phone mr-3 text-success  "></i>+91 2655857856</p> 
+          </div>
+      </div>
+
+      <!-- Social Media -->
+      <hr class="mb-4">
+      <div class="row align-items-center">
+          <div class="col-md-7 col-lg-8">
+             <h1><a class="navbar-brand fs-1 fw-bold text-success" href="#">PlantFual<sup class="fs-2"><i class="fa-solid fa-fill-drip   text-warning"></i></sup><i class="fa-solid fa-seedling"></i></a></h1>
+              <p class="text-center text-md-left">© 2024 Copyright:
+                  <a href="#" class="text-white" style="text-decoration: none;">
+                      <strong>PlantFual.com</strong><br>
+                      www.PlantFual-onlineshopping.in
+                      
+                  </a>
+              </p>
+          </div>
+
+          <div class="col-md-5 col-lg-4">
+              <div class="text-center text-md-right">
+                  <ul class="list-unstyled list-inline">
+                      <li class="list-inline-item">
+                          <a href="#" class="btn-floating btn-sm  text-info" style="font-size: 23px;"><i class="fab fa-facebook-f"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                          <a href="#" class="btn-floating btn-sm text-info" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                          <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-google-plus-g"></i></a>
+                      </li>
+                      
+                      <li class="list-inline-item">
+                          <a href="#" class="btn-floating btn-sm text-danger" style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
+                      </li>
+                      
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+<!-- Custom JS for Dynamic Cart (Optional) -->
+<!-- <script src="index.js"></script> -->
+
+
+
+</body>
+</html>

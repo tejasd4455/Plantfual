@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features</title>
+  <link rel="stylesheet" href="index.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <!-- Website Name -->
+    <a class="navbar-brand fs-2 fw-bold text-success" href="#">Plant<span class="text-warning">Fual</span><sup class="fs-2"><i class="fa-solid fa-fill-drip text-warning"></i></sup><i class="fa-solid fa-seedling"></i></a>
+    
+    <!-- Toggle for mobile view -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links and search bar -->
+    <div class="collapse navbar-collapse fs-5 ms-4 fw-bolder text-black" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link text-black" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="features.html">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="product.html">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="contact us.html">Contact us</a>
+        </li>
+      </ul>
+
+      <!-- Centered search bar -->
+      <form class="d-flex mx-auto">
+        <input class="form-control  bg-body-secondary me-2 text-black fw-bolder "  type="search" placeholder="Search..." aria-label="Search">
+        <button class="btn btn-outline-success " type="submit">Search</button>
+      </form>
+
+      <!-- Right side: Login and Add to Cart -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><button class=" me-5 btn btn-outline-warning fw-bolder"><i class="bi bi-person"></i>Login</button>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+           Add to Cart Button (Triggers Off-Canvas) -->
+          <!-- <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+            <button class=" btn btn-outline-success fw-bolder fs-5 me-5"><i class="bi bi-cart"></i> Add to Cart<sup>(0)</sup></button>
+          </a>
+        </li>  -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Off-Canvas Cart -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="cartOffcanvasLabel">Shopping Cart</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <!-- Cart Items -->
+    <ul class="list-group mb-3">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Plant 1
+        <span class="badge bg-primary rounded-pill">1</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Plant 2
+        <span class="badge bg-primary rounded-pill">2</span>
+      </li>
+      <!-- Add more items dynamically here as needed -->
+    </ul>
+
+    <!-- Total Price -->
+    <h6>Total: $80.00</h6>
+
+    <!-- Checkout Button -->
+    <button class="btn btn-success w-100">Checkout</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Features Section -->
+<section class="py-5" id="features">
+  <div class="container text-center">
+      <h2 class="section-title text-success mt-4">Our Features</h2>
+      <p class="mb-4">Explore the innovative solutions we offer to maximize agricultural success.</p>
+      <div class="row g-4">
+          <!-- Feature 1 -->
+          <div class="col-md-4">
+              <div class="card h-100 border-0 shadow">
+                  <div class="card-body">
+                      <i class="bi bi-flower3 text-success display-4 mb-3"></i>
+                      <h5 class="card-title">Eco-Friendly Products</h5>
+                      <p class="card-text">Our fertilizers are designed to boost crop yield while protecting the environment.</p>
+                  </div>
+              </div>
+          </div>
+          <!-- Feature 2 -->
+          <div class="col-md-4">
+              <div class="card h-100 border-0 shadow">
+                  <div class="card-body">
+                      <i class="bi bi-bar-chart-line-fill text-success display-4 mb-3"></i>
+                      <h5 class="card-title">High Efficiency</h5>
+                      <p class="card-text">Achieve better results with our scientifically developed formulations.</p>
+                  </div>
+              </div>
+          </div>
+          <!-- Feature 3 -->
+          <div class="col-md-4">
+              <div class="card h-100 border-0 shadow">
+                  <div class="card-body">
+                      <i class="bi bi-truck text-success display-4 mb-3"></i>
+                      <h5 class="card-title">Reliable Delivery</h5>
+                      <p class="card-text">Get your fertilizers delivered on time, every time, with our trusted logistics.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row g-4 mt-4">
+          <!-- Feature 4 -->
+          <div class="col-md-4">
+              <div class="card h-100 border-0 shadow">
+                  <div class="card-body">
+                      <i class="bi bi-droplet-fill text-success display-4 mb-3"></i>
+                      <h5 class="card-title">Water-Soluble Options</h5>
+                      <p class="card-text">Easy-to-use water-soluble fertilizers for precision farming.</p>
+                  </div>
+              </div>
+          </div>
+          <!-- Feature 5 -->
+          <div class="col-md-4">
+              <div class="card h-100 border-0 shadow">
+                  <div class="card-body">
+                      <i class="bi bi-puzzle-fill text-success display-4 mb-3"></i>
+                      <h5 class="card-title">Customizable Solutions</h5>
+                      <p class="card-text">Tailored fertilizer blends to suit specific crop needs and soil conditions.</p>
+                  </div>
+              </div>
+          </div>
+          <!-- Feature 6 -->
+          <div class="col-md-4">
+              <div class="card h-100 border-0 shadow">
+                  <div class="card-body">
+                      <i class="bi bi-globe text-success display-4 mb-3"></i>
+                      <h5 class="card-title">Global Reach</h5>
+                      <p class="card-text">We provide agricultural solutions to farmers worldwide.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<div class="container mt-4  border ">
+  <div class="row">
+      <div class="col-6 col-md-4 col-lg-3">
+          <img src="images/potato.jpg" class="img-fluid" alt="Image 1">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/water pant.jpg" class="img-fluid" alt="Image 2">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/pexels-quang-nguyen-vinh-222549-2135677.jpg " class="img-fluid" alt="Image 3">
+          <img src="images/sprey.jpg" class="img-fluid" alt="Image 3">
+
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/vegitable.jpg" class="img-fluid" alt="Image 4">
+          <img src="images/pexels-abhishekkoundle-3905689.jpg" class="img-fluid" alt="Image 3">
+
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/plant root.jpg" class="img-fluid" alt="Image 5">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/man sprey.jpg" class="img-fluid" alt="Image 6">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/npk.jpg" class="img-fluid" alt="Image 7">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+          <img src="images/pexels-byrahul-983466.jpg" class="img-fluid" alt="Image 8">
+      </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Scroll-to-Top Button -->
+<button id="scrollToTopBtn" class="btn btn-success  btn-lg rounded-circle" onclick="scrollToTop()">
+  <i class="bi bi-arrow-up fw-bolder "></i>
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- FAQs Start -->
+ <div class="faqs bg-light Start">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>  <a class="navbar-brand fs-2 fw-bold text-success" href="#">Plant<span class="text-warning">Fual</span><sup class="fs-2"><i class="fa-solid fa-fill-drip text-warning"></i></sup><i class="fa-solid fa-seedling"></i></a>
+            </p>
+            <h2>we provides sevices</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="accordion-1">
+                    <div class="card wow fadeInLeft" data-wow-delay="0.1s">
+                        <div class="card-header Start">
+                            <a class="card-link collapsed text-decoration-none fw-bold text-black" data-toggle="collapse" href="#collapseOne">
+                                Fertilizer Supply
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body text-decoration-none">
+                                Soil Testing
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="card-header Start ">
+                            <a class="card-link collapsed text-decoration-none fw-bold text-black" data-toggle="collapse" href="#collapseTwo">
+                                Agricatcture Tools
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Crop Mangamenent Support
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.3s">
+                        <div class="card-header Start">
+                            <a class="card-link collapsed text-decoration-none fw-bold text-black" data-toggle="collapse" href="#collapseThree">
+                                Liquid Fertilizer
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                               Drip & Irrigation Services
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.4s">
+                        <div class="card-header Start">
+                            <a class="card-link collapsed text-decoration-none fw-bold text-black" data-toggle="collapse" href="#collapseFour">
+                                Customized Fertilizer Solutions
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Farming tips & fertilizers Dose Management
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.5s">
+                        <div class="card-header Start">
+                            <a class="card-link collapsed text-decoration-none fw-bold text-black" data-toggle="collapse" href="#collapseFive">
+                                Drip & Irrigation Services
+                            </a>
+                        </div>
+                        <div id="collapseFive" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                 Tractor insurance
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="accordion-2">
+                    <div class="card wow fadeInRight" data-wow-delay="0.1s">
+                        <div class="card-header Start">
+                            <a class="card-link collapsed text-decoration-none fw-bold text-black" data-toggle="collapse" href="#collapseSix">
+                                Farming tips & fertilizers Dose Management
+                            </a>
+                        </div>
+                        <div id="collapseSix" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Agricalcture Tranning center
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="card-header Start">
+                            <a class="card-link collapsed text-decoration-none fw-bold text-black" data-toggle="collapse" href="#collapseSeven">
+                                pesticides fertilizer
+                            </a>
+                        </div>
+                        <div id="collapseSeven" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Training and Capacity Building
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                        <div class="card-header Start">
+                            <a class="card-link collapsed text-decoration-none fw-bold text-black" data-toggle="collapse" href="#collapseEight">
+                                Farming loan
+                            </a>
+                        </div>
+                        <div id="collapseEight" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.4s">
+                        <div class="card-header Start">
+                            <a class="card-link collapsed text-decoration-none fw-bold text-black" data-toggle="collapse" href="#collapseNine">
+                                Kisan Seva Kendra
+                            </a>
+                        </div>
+                        <div id="collapseNine" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Farming loan
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.5s">
+                        <div class="card-header Start">
+                            <a class="card-link collapsed text-decoration-none fw-bold text-black" data-toggle="collapse" href="#collapseTen">
+                            Online  Shop to Farm service & 24/7 Service Available
+
+                            </a>
+                        </div>
+                        <div id="collapseTen" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                24/7 Service Available
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAQs End -->
+
+
+
+
+
+
+
+<footer class="bg-black text-white pt-5 pb-4">
+  <div class="container text-center text-md-start">
+      <div class="row text-center text-md-start">
+          <!-- Company Info -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <a class="navbar-brand fs-2 fw-bold text-success" href="#">PlantFual<sup class="fs-2"><i class="fa-solid fa-fill-drip text-warning"></i></sup><i class="fa-solid fa-seedling"></i></a>
+
+              <h6>From Soil to Harvest: Fertilize Your Dreams!<i class="bi bi-tag  text-warning"></i></h6>
+              
+          </div>
+
+          <!-- Links -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h5 class="text-uppercase mb-4 fw-bold text-warning">Products</h5>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">HOME</a></p>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">Product</a></p>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">Special</a></p>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">About</a></p>
+              
+          </div>
+
+
+          
+
+          <!-- Useful Links -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h5 class="text-uppercase mb-4 fw-bold  text-warning">Useful Links</h5>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">Your Account</a></p>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">Become an Affiliate</a></p>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">Shipping Rates</a></p>
+              <p><a href="#" class="text-white fw-bolder" style="text-decoration: none;">Help</a></p>
+          </div>
+
+          <!-- Contact -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h5 class="text-uppercase mb-4 fw-bold  text-warning">Contact</h5>
+              <p class="fw-bolder"><i class="fas fa-home mr-3 text-danger "></i> xyz ,abc, Maharastra(India)</p>
+              <p class="fw-bolder"><i class="fas fa-envelope mr-3 text-warning "></i> PlantFual@24gmail.com</p>
+              <p class="fw-bolder"><i class="fas fa-phone mr-3 text-success  "></i>+91 2655857856</p> 
+          </div>
+      </div>
+
+      <!-- Social Media -->
+      <hr class="mb-4">
+      <div class="row align-items-center">
+          <div class="col-md-7 col-lg-8">
+             <h1><a class="navbar-brand fs-1 fw-bold text-success" href="#">PlantFual<sup class="fs-2"><i class="fa-solid fa-fill-drip   text-warning"></i></sup><i class="fa-solid fa-seedling"></i></a></h1>
+              <p class="text-center text-md-left">© 2024 Copyright:
+                  <a href="#" class="text-white" style="text-decoration: none;">
+                      <strong>PlantFual.com</strong><br>
+                      www.PlantFual-onlineshopping.in
+                      
+                  </a>
+              </p>
+          </div>
+
+          <div class="col-md-5 col-lg-4">
+              <div class="text-center text-md-right">
+                  <ul class="list-unstyled list-inline">
+                      <li class="list-inline-item">
+                          <a href="#" class="btn-floating btn-sm  text-info" style="font-size: 23px;"><i class="fab fa-facebook-f"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                          <a href="#" class="btn-floating btn-sm text-info" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                          <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-google-plus-g"></i></a>
+                      </li>
+                      
+                      <li class="list-inline-item">
+                          <a href="#" class="btn-floating btn-sm text-danger" style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
+                      </li>
+                      
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+<!-- Custom JS for Dynamic Cart (Optional) -->
+<script src="index.js"></script>
+
+</body>
+</html>
